@@ -17,6 +17,15 @@ def page():
     </html>
     """
 
+@app.route('/add/<int:a>/<int:b>')
+def add(a, b):
+    return (f"<p>{a} + {b} = {a + b}</p>")
+
+@app.route('/reverse')
+def reverse():
+    q = request.args.get("q", "")
+    return (f"<p>{q[::-1]}</p>")
+
 @app.route('/rick-astley.jpg')
 def rick():
     return send_file('rick-astley.jpg')
