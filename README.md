@@ -1,4 +1,4 @@
-# CPSC-4430---Lab-3
+# CPSC 4430 Lab 3
 
 <h1>Requirements</h1>
 <ul>
