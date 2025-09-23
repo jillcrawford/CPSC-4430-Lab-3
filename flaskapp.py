@@ -21,6 +21,10 @@ def page():
 def add(a, b):
     return (f"<p>{a} + {b} = {a + b}</p>")
 
+@app.route('/sub/<int:a>/<int:b>')
+def sub(a, b):
+    return (f"<p>{a} - {b} = {a - b}</p>")
+
 @app.route('/reverse')
 def reverse():
     q = request.args.get("q", "")
