@@ -77,11 +77,29 @@ def sub():
     </body>
     </html>
     """
+#(f"<p>{q[::-1]}</p>")
 
 @app.route('/reverse')
 def reverse():
     q = request.args.get("q", "")
-    return (f"<p>{q[::-1]}</p>")
+    result = (f"<p>{q[::-1]}</p>")
+    return f"""
+    <!doctype html>
+    <html>
+    <head>
+        <title>Reverse Text</title>
+    </head>
+    <body>
+        <h2>Reverse Text</h2>
+        <form action='/reverse'>
+            <input type='text' name='q' required>
+            <button type='submit'>Reverse</button>
+        </form>
+        {result}
+        <p><a href='/'>Go back</a></p>
+    </body>
+    </html>
+    """
 
 @app.route('/rick-astley.jpg')
 def rick():
