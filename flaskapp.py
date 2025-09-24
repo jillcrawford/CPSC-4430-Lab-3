@@ -51,9 +51,32 @@ def add():
     </html>
     """
 
-@app.route('/sub/<int:a>/<int:b>')
-def sub(a, b):
-    return (f"<p>{a} - {b} = {a - b}</p>")
+@app.route('/sub')
+def sub():
+    a = request.args.get('a')
+    b = request.args.get('b')
+    result =""
+    if a and b and a.isdigit() and b.isdigit():
+        result = f"<p>{a} - {b} = {int(a) - int(b)}</p>"
+
+    return f"""
+    <!doctype html>
+    <html>
+    <head>
+        <title>Subtraction</title>
+    </head>
+    <body>
+        <h2>Subtraction</h2>
+        <form action='/sub'>
+            <input type='number' name='a' required> -
+            <input type='number' name='b' required>
+            <button type='submit'>Subtract</button>
+        </form>
+        {result}
+        <p><a href='/'>Go back</a></p>
+    </body>
+    </html>
+    """
 
 @app.route('/reverse')
 def reverse():
